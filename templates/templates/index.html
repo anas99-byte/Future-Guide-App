@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل المستقبل - IT Officer</title>
+    <style>
+        :root { --primary-color: #00d2ff; --bg-color: #0f172a; }
+        body { font-family: sans-serif; background-color: var(--bg-color); color: white; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; }
+        .container { background: #1e293b; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); width: 100%; max-width: 400px; text-align: center; border: 1px solid #334155; }
+        h1 { color: var(--primary-color); font-size: 1.5rem; margin-bottom: 1.5rem; }
+        input, select { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: white; box-sizing: border-box; font-size: 16px; }
+        button { width: 100%; padding: 12px; border-radius: 8px; border: none; background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%); color: white; font-weight: bold; cursor: pointer; margin-top: 10px; font-size: 16px; }
+        .result-box { margin-top: 20px; padding: 15px; background: #334155; border-radius: 10px; border-right: 5px solid var(--primary-color); text-align: right; }
+        .zodiac-name { color: var(--primary-color); font-weight: bold; margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔮 مستشارك التقني الذكي</h1>
+        <form method="POST">
+            <input type="number" name="day" placeholder="يوم الميلاد (1-31)" required min="1" max="31">
+            <select name="month" required>
+                <option value="" disabled selected>شهر الميلاد</option>
+                <option value="1">يناير</option> <option value="2">فبراير</option>
+                <option value="3">مارس</option> <option value="4">أبريل</option>
+                <option value="5">مايو</option> <option value="6">يونيو</option>
+                <option value="7">يوليو</option> <option value="8">أغسطس</option>
+                <option value="9">سبتمبر</option> <option value="10">أكتوبر</option>
+                <option value="11">نوفمبر</option> <option value="12">ديسمبر</option>
+            </select>
+            <button type="submit">تحليل الطالع التقني</button>
+        </form>
+
+        {% if prediction %}
+            <div class="result-box">
+                <div class="zodiac-name">برجك: {{ zodiac }}</div>
+                <p>{{ prediction }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
